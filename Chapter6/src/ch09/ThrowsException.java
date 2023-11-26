@@ -1,4 +1,4 @@
-package ch08;
+package ch09;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

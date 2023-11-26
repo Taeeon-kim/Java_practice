@@ -1,0 +1,6 @@
+11월 26, 2023 11:31:10 오전 ch11.MyLogger warning
+경고: name must not be null
+11월 26, 2023 11:31:10 오전 ch11.MyLogger warning
+경고: 이름이 너무 길어요
+11월 26, 2023 11:31:10 오전 ch11.MyLogger fine
+미세: begin getStudentName()
