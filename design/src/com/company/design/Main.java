@@ -1,29 +1,39 @@
 package com.company.design;
 
 import com.company.design.adapter.*;
+import com.company.design.facade.Ftp;
+import com.company.design.facade.Reader;
+import com.company.design.facade.SftpClient;
+import com.company.design.facade.Writer;
 
-import com.company.design.decorator.*;
-
-//import com.company.design.singleton.AClazz;
-//import com.company.design.singleton.BClazz;
-//import com.company.design.singleton.SocketClient;
 
 public class Main {
     public static void main(String[] args) {
+        Ftp ftpClient = new Ftp("www.foo.co.kr",22,"/home/etc");
+        ftpClient.connect();
+        ftpClient.moveDirectory();
 
-        ICar audi = new Audi(1000);
-        audi.showPrice();
-        //a3
-    ICar audi3 = new A3(audi, "A3");
-    audi3.showPrice();
+        Writer writer = new Writer("text.tmp");
+        writer.fileConnect();
+        writer.write();
 
-        //a4
-    ICar audi4 = new A4(audi, "A4");
-    audi4.showPrice();
-        //a5
+        Reader reader = new Reader("text.tmp");
+        reader.fileConnect();
+        reader.fileRead();
 
-        ICar audi5 = new A5(audi,"A5");
-        audi5.showPrice();
+        reader.fileDisconnect();
+        writer.fileDisconnect();
+        ftpClient.disconnect();
+
+        SftpClient sftpClient = new SftpClient("www.foo.co.kr", 22, "/home/etc", "text.tmp");
+        sftpClient.connect();
+
+        sftpClient.write();
+
+        sftpClient.read();
+
+        sftpClient.disConnect();
+
     }
 
 
