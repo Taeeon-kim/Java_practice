@@ -3,11 +3,15 @@ package hello.hellsprings.service;
 import hello.hellsprings.domain.Member;
 import hello.hellsprings.repository.MemberRepository;
 import hello.hellsprings.repository.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class MemberService {
+    @Autowired
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
