@@ -9,7 +9,7 @@ public class MemberController {
 
     private final MemberService memberService;
 
-    @Autowired
+    @Autowired // 의존성 주입, dependency injection
     public MemberController(MemberService memberService) {
         this.memberService = memberService;
     }

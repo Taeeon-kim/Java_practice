@@ -56,7 +56,7 @@ class MemberServiceTest {
 
         //when
         memberService.join(member1);
-        IllegalStateException e = assertThrows(IllegalStateException.class, () -> memberService.join(member2));
+        IllegalStateException e = assertThrows(IllegalStateException.class, () -> memberService.join(member2)); // NOTE: 두번째 인자의 로직이 실행될때
 
         assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
 

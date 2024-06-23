@@ -19,7 +19,7 @@ public class MemberService {
     private final MemberRepository memberRepository ;
 
     public Long join(Member member){
-        // 같은 이름이 있는 중복회원X
+        // 같은 이름이 있는 중복회원 x
         validateDuplicateMember(member); // NOTE: 중복 회원 검증
         memberRepository.save(member);
         return member.getId();

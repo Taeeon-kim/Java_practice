@@ -13,7 +13,7 @@ public class MemoryMemberRepository implements MemberRepository{
 
 
     @Override
-    public Member save(Member member) {
+    public Member save(Member member) { // 인터페이스로 만들어진 추상 메서드들을 오버라이딩으로 기능 추가해준다.
         member.setId(++sequence);
         store.put(member.getId(),member);
         return member;

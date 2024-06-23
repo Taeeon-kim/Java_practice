@@ -16,7 +16,7 @@ public class HelloController {
     }
 
     @GetMapping("hello-mvc")
-    public String helloMvc(@RequestParam("name") String name, Model model){
+    public String helloMvc(@RequestParam("name") String name, Model model){ // NOTE: @Requestparam사용 name이라는 파라미터를 받아서 사용
         model.addAttribute("name", name);
         return "hello-template";
     }
@@ -32,7 +32,7 @@ public class HelloController {
     public Hello helloApi(@RequestParam("name") String name){
         Hello hello = new Hello();
         hello.setName(name);
-        return hello;
+        return hello;  // NOTE: HttpMessageconverter, MappingJackson2HttpMessageConverter사용하여 json으로 변환해줘서 바디에 준다
     }
 
     static class Hello{
