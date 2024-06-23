@@ -1,6 +1,7 @@
 package hello.hellsprings;
 
 import hello.hellsprings.repository.JdbcMemberRepository;
+import hello.hellsprings.repository.JdbcTemplateMemberRepository;
 import hello.hellsprings.repository.MemberRepository;
 import hello.hellsprings.repository.MemoryMemberRepository;
 import hello.hellsprings.service.MemberService;
@@ -26,6 +27,7 @@ public class SpringConfig {
 
     @Bean // NOTE: memberRepository를 스프링빈에 등록
     public MemberRepository memberRepository(){
-        return new JdbcMemberRepository(dataSource);
+//        return new JdbcMemberRepository(dataSource);
+        return new JdbcTemplateMemberRepository(dataSource);
     }
 }
