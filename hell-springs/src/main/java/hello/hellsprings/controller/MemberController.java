@@ -19,6 +19,7 @@ public class MemberController {
     @Autowired // 의존성 주입, dependency injection
     public MemberController(MemberService memberService) { // NOTE: 주입방법이 3개정도있는데 생성사 주입으로 사용
         this.memberService = memberService;
+        System.out.println("memberService = "+ memberService.getClass());
     }
 
     @GetMapping("/members/new")

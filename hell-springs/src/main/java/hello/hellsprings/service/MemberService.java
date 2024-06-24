@@ -5,11 +5,12 @@ import hello.hellsprings.repository.MemberRepository;
 import hello.hellsprings.repository.MemoryMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
-@Service
+@Transactional
 public class MemberService {
 
     public MemberService(MemberRepository memberRepository) {
@@ -20,9 +21,9 @@ public class MemberService {
 
     public Long join(Member member){
         // 같은 이름이 있는 중복회원 x
-        validateDuplicateMember(member); // NOTE: 중복 회원 검증
-        memberRepository.save(member);
-        return member.getId();
+            validateDuplicateMember(member); // NOTE: 중복 회원 검증
+            memberRepository.save(member);
+            return member.getId();
     }
 
     private void validateDuplicateMember(Member member) {
