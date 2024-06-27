@@ -10,11 +10,11 @@ import hello.core.order.OrderServiceImpl;
 public class AppConfig {
 
     public MemberService memberService(){ // 맴버서비스
-        return new MemberServiceImpl(new MemoryMemberRepository()); // 생성자 호출
+        return new MemberServiceImpl(new MemoryMemberRepository()); // 생성자 호출, 참조값을 생성자에 주입해줌
     }
 
     public OrderService orderService(){ // 오더 서비스
-        return new OrderServiceImpl(new MemoryMemberRepository(), new FixDiscountPolicy()); // 생성자 호출
+        return new OrderServiceImpl(new MemoryMemberRepository(), new FixDiscountPolicy()); // 생성자 호출, 참조값을 생성자에 주입해줌
     }
 
 
