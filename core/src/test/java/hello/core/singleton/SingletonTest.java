@@ -49,9 +49,9 @@ public class SingletonTest {
 
         ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
 
-        // 1. 조회: 호출할때마다 객체를 생성
+
         MemberService memberService1 = ac.getBean("memberService", MemberService.class);
-        // 2. 조회: 호출할때마다 객체를 생성
+
         MemberService memberService2 = ac.getBean("memberService", MemberService.class);
 
         // 참조값이 다른것 확인

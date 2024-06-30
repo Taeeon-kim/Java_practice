@@ -24,4 +24,9 @@ public class OrderServiceImpl implements OrderService{ // 주문 서비스 구�
         int discountPrice = discountPolicy.discount(member, itemPrice); // 해당 맴버와 아이템을 넘겨 얼마의 할인을 받을수있는지 할인정책에 넘김
         return new Order(memberId, itemName, itemPrice, discountPrice); // 최종 주문생성을 위한 주문 생성후 리턴
     }
+
+    //테스트용
+    public MemberRepository getMemberRepository() {
+        return memberRepository;
+    }
 }
