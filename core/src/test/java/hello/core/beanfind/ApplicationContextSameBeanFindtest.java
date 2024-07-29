@@ -49,10 +49,10 @@ public class ApplicationContextSameBeanFindtest {
     @Configuration // 스코프를 test안에서만 사용하기위해 config 만듬
     static class sameBeanConfig {
 
-        @Bean
-        public MemberRepository memberRepository1() {
-            return new MemoryMemberRepository();
-        }
+//        @Bean
+//        public MemberRepository memberRepository1() {
+//            return new MemoryMemberRepository();
+//        }
 
         @Bean
         public MemberRepository memberRepository2() {

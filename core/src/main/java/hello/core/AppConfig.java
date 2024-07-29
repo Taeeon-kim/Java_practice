@@ -25,6 +25,7 @@ public class AppConfig { // 구성 영역(공연 기획, 담당 섭외등)
     public OrderService orderService(){ // 오더 서비스 역할
         System.out.println("call AppConfig.orderService");
         return new OrderServiceImpl(memberRepository(), discountPolicy()); // 생성자 호출, 참조값을 생성자에 주입해줌
+//        return null;
     }
 
     @Bean
