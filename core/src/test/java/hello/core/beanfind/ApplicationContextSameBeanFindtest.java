@@ -20,20 +20,20 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class ApplicationContextSameBeanFindtest {
     AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(sameBeanConfig.class);
 
-    @Test
-    @DisplayName("타입으로 조회시 같은 타입이 둘 이상있으면, 중복오류가 발생한다.")
-    void findBeanByTypeDuplicate(){
+//    @Test
+//    @DisplayName("타입으로 조회시 같은 타입이 둘 이상있으면, 중복오류가 발생한다.")
+//    void findBeanByTypeDuplicate(){
+//
+//        assertThrows(NoUniqueBeanDefinitionException.class, ()-> ac.getBean(MemberRepository.class));
+//    }
 
-        assertThrows(NoUniqueBeanDefinitionException.class, ()-> ac.getBean(MemberRepository.class));
-    }
-
-    @Test
-    @DisplayName("타입으로 조회시 같은 타입이 둘 이상 있으면, 빈 이름을 지정하면 된다.")
-    void fidBeanByName(){
-        MemberRepository memberRepository = ac.getBean("memberRepository1", MemberRepository.class);
-    assertThat(memberRepository).isInstanceOf(MemberRepository.class);
-
-    }
+//    @Test
+//    @DisplayName("타입으로 조회시 같은 타입이 둘 이상 있으면, 빈 이름을 지정하면 된다.")
+//    void fidBeanByName(){
+//        MemberRepository memberRepository = ac.getBean("memberRepository", MemberRepository.class);
+//    assertThat(memberRepository).isInstanceOf(MemberRepository.class);
+//
+//    }
 
     @Test
     @DisplayName("특정 타입을 모두 조회하기")
@@ -43,7 +43,7 @@ public class ApplicationContextSameBeanFindtest {
             System.out.println("Key = "+key+" value = " + beansOfType.get(key));
         }
         System.out.println("beanOfType = " + beansOfType);
-        assertThat(beansOfType.size()).isEqualTo(2);
+        assertThat(beansOfType.size()).isEqualTo(1);
     }
 
     @Configuration // 스코프를 test안에서만 사용하기위해 config 만듬

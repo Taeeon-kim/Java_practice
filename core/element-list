@@ -1,0 +1,12 @@
+hello.core
+hello.core.annotation
+hello.core.autowired
+hello.core.beandefinition
+hello.core.beanfind
+hello.core.discount
+hello.core.member
+hello.core.order
+hello.core.scan
+hello.core.scan.filter
+hello.core.singleton
+hello.core.xml
