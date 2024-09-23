@@ -1,5 +1,6 @@
 package hello.core.order;
 
+import hello.core.annotation.MainDiscountPolicy;
 import hello.core.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
@@ -18,7 +19,7 @@ public class OrderServiceImpl implements OrderService{ // 주문 서비스 구�
     private final DiscountPolicy discountPolicy; // DIP 를 지키기위해 인터페이스만 의존하도록 만들었지만, 실제 구체화된것이 없기때문에 외부에서 이를 구현하여 넣을수있게 해줘야함
 
     @Autowired
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+    public OrderServiceImpl(MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
