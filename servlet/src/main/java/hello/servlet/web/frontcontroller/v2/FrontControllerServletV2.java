@@ -32,6 +32,7 @@ public class FrontControllerServletV2 extends HttpServlet {
         System.out.println("FrontControllerServletV2.service");
 
         String requestURI = request.getRequestURI();
+        System.out.println("requestURI = " + requestURI);
         ControllerV2 controller = controllerMap.get(requestURI);
         if (controller==null){
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
