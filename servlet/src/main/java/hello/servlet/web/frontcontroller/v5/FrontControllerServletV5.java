@@ -55,7 +55,7 @@ public class FrontControllerServletV5 extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        //MemberFormControllerV4
+        //return MemberFormControllerV4
         Object handler = getHandler(request);
 
         if (handler == null) {
@@ -63,7 +63,7 @@ public class FrontControllerServletV5 extends HttpServlet {
             return;
         }
 
-        //ControllerV4HandlerAdapter
+        //return ControllerV4HandlerAdapter
         MyHandlerAdapter adapter = getHandlerAdapter(handler);
 
         ModelView modelView = adapter.handle(request, response, handler);
