@@ -22,11 +22,10 @@ public class MyView {
     }
 
     public void render(Map<String, Object> model, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("model = " + model);
-        System.out.println("viewPath = " + viewPath);
-        modelToRequestAttribute(model, request);
-        RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);
-        dispatcher.forward(request, response);
+
+        modelToRequestAttribute(model, request); // 해시맵 model에 담았던 데이터를 request attribute에 저장
+        RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath); // dispatcher에 path저장
+        dispatcher.forward(request, response); // forward를 통해 전달
     }
 
     private void modelToRequestAttribute(Map<String, Object> model, HttpServletRequest request) {
