@@ -73,7 +73,7 @@ public class BasicItemController {
 
 //        model.addAttribute("item", item);
 
-        return "basic/item"; // 템플릿 basic -> item.html
+        return "redirect:/basic/items/" + item.getId(); // 템플릿 basic -> item.html
     }
 
     @GetMapping("/{itemId}/edit")
