@@ -68,12 +68,26 @@ public class BasicItemController {
 
     @PostMapping("/add")
     public String addItemV3(@ModelAttribute Item item, Model model){ // ModelAttribute의 파라미터 "item" 부분을 지우면 class Item를 item이라는 소문자로 Model에 넣어줌
-        
+
         itemRepository.save(item);
 
 //        model.addAttribute("item", item);
 
         return "basic/item"; // 템플릿 basic -> item.html
+    }
+
+    @GetMapping("/{itemId}/edit")
+    public String editForm(@PathVariable Long itemId, Model model){
+        Item item = itemRepository.findById(itemId);
+        model.addAttribute("item", item);
+        return "basic/editForm";
+
+    }
+
+    @PostMapping("/{itemId}/edit")
+    public String edit(@PathVariable Long itemId, @ModelAttribute Item item){
+        itemRepository.update(itemId, item);
+        return "redirect:/basic/items/{itemId}";
     }
 
     @PostConstruct
