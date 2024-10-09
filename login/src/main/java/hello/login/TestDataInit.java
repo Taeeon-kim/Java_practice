@@ -5,10 +5,12 @@ import hello.login.domain.item.ItemRepository;
 import hello.login.domain.member.Member;
 import hello.login.domain.member.MemberRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 
+@Slf4j
 @Component
 @RequiredArgsConstructor
 public class TestDataInit {
@@ -29,6 +31,7 @@ public class TestDataInit {
         member.setPassword("test!");
         member.setName("테스터");
         memberRepository.save(member);
+        log.info("memberRepository={}", memberRepository.findAll());
     }
 
 }
