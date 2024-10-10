@@ -25,6 +25,7 @@ public class ItemController {
 
     @GetMapping
     public String items(Model model) {
+        //로그인여부 체크 TODO
         List<Item> items = itemRepository.findAll();
         model.addAttribute("items", items);
         return "items/items";
@@ -32,6 +33,7 @@ public class ItemController {
 
     @GetMapping("/{itemId}")
     public String item(@PathVariable long itemId, Model model) {
+        //로그인여부 체크 TODO
         Item item = itemRepository.findById(itemId);
         model.addAttribute("item", item);
         return "items/item";
@@ -39,13 +41,14 @@ public class ItemController {
 
     @GetMapping("/add")
     public String addForm(Model model) {
+        //로그인여부 체크 TODO
         model.addAttribute("item", new Item());
         return "items/addForm";
     }
 
     @PostMapping("/add")
     public String addItem(@Validated @ModelAttribute("item") ItemSaveForm form, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
-
+        //로그인여부 체크 TODO
         //특정 필드 예외가 아닌 전체 예외
         if (form.getPrice() != null && form.getQuantity() != null) {
             int resultPrice = form.getPrice() * form.getQuantity();
@@ -73,6 +76,7 @@ public class ItemController {
 
     @GetMapping("/{itemId}/edit")
     public String editForm(@PathVariable Long itemId, Model model) {
+        //로그인여부 체크 TODO
         Item item = itemRepository.findById(itemId);
         model.addAttribute("item", item);
         return "items/editForm";
@@ -80,7 +84,7 @@ public class ItemController {
 
     @PostMapping("/{itemId}/edit")
     public String edit(@PathVariable Long itemId, @Validated @ModelAttribute("item") ItemUpdateForm form, BindingResult bindingResult) {
-
+        //로그인여부 체크 TODO
         //특정 필드 예외가 아닌 전체 예외
         if (form.getPrice() != null && form.getQuantity() != null) {
             int resultPrice = form.getPrice() * form.getQuantity();
