@@ -20,7 +20,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@Transactional
+@Transactional // 이거만 붙여주면 스프링부트가 기본제공하는 rollback, 임베디드 jdbc h2 설정을 자동으로해줌
 @SpringBootTest
 class ItemRepositoryTest {
 
